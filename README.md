@@ -26,7 +26,11 @@ Auth).
    shared reference data everyone can read). The script also seeds
    `workout_templates` with a 4-day Upper/Lower split.
 3. Copy `.env.local.example` to `.env.local` and fill in your project's URL
-   and anon key from **Project Settings → API**:
+   and key from **Project Settings → API**. Use the **publishable key**
+   (`sb_publishable_...`, under "Publishable and secret API keys") rather
+   than the legacy `anon` JWT — it's a drop-in replacement, and legacy keys
+   are disabled on this project since both `anon` and `service_role` share
+   one signing secret and can't be rotated independently:
 
    ```bash
    cp .env.local.example .env.local
